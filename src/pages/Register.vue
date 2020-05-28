@@ -46,13 +46,18 @@ export default {
   },
   methods:{
     sendMsg(){
-      Toast.loading({
+      if(this.phone){
+        Toast.loading({
           message: "加载中...",
           forbidClick: true
         })
         setTimeout(()=>{
           Toast.success('发送成功');
         },1000)
+      }else{
+        Toast('请输入手机号码')
+      }
+      
     },
     register(){
       if(this.vertifyCode&&this.phone&&this.password){

@@ -1,6 +1,7 @@
 <template>
   <div class="login">
-    <span class="icon-logo">&#xe604;</span>
+    <!-- <span class="icon-logo">&#xe604;</span> -->
+    <icon color="#fff" size="80px" iconId="&#xe604;" />
     <p class="logo-name">LOGO</p>
     <van-form class="login-form" @submit="onSubmit">
       <van-field
@@ -38,10 +39,14 @@
 </template>
 
 <script>
+import Icon from '../components/Icon'
 import { Toast } from 'vant'
 Toast.setDefaultOptions({ duration: 500 });
 export default {
   name: "Login",
+  components:{
+    Icon
+  },
   data() {
     return {
       inputBorder: false,
@@ -59,7 +64,7 @@ export default {
         setTimeout(()=>{
           Toast.success('登录成功');
           setTimeout(()=>{
-            this.$router.push({name:'Home'})
+            this.$router.push('todolist')
           },500)
         },1000)
       } else {
@@ -72,7 +77,7 @@ export default {
 </script>
 
 <style scoprd>
-.icon-logo {
+/* .icon-logo {
   font-family: "iconfont" !important;
   font-size: 80px;
   font-style: normal;
@@ -80,7 +85,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
-}
+} */
 .login {
   width: 100%;
   height: 100%;
